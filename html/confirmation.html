@@ -17,7 +17,7 @@
       }
       
     </style>
-    <link rel="shortcut icon" href="../pictures/logo9.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../pictures/logo.png" type="image/x-icon">
     <title>FarmLink - Sing In</title>
 </head>
 <body>
@@ -57,8 +57,8 @@
                   <div class="col-1" ><span class="badge bg-light text-dark badige">Nome : </span></div>
                   <div class="col-3"><p class="h5" data-bind="text:nome"></p></div>
 
-                  <div class="col-1" ><span class="badge bg-light text-dark badige">Localização : </span></div>
-                  <div class="col-3"><p class="h5" data-bind="text:localizacao"></p></div>
+                  <div class="col-1" ><span class="badge bg-light text-dark badige">Localização :   </span></div>
+                    <div class="col-3"><p class="h5" data-bind="text:localizacao"></p><p data-bind="text:distancia"></p></div>
 
                   <div class="col-1" ><span class="badge bg-light text-dark badige">Rating : </span></div>
                   <div class="col-3"><p class="h5" data-bind="text:rating"></p></div>
@@ -92,14 +92,44 @@
                           
                         </tbody>
                     </table>
-                    <div class="row-4">
-                      <div class="col-2">
-                        <ol class="list-group list-group">
-                      <li class="list-group-item">Entrega : <p data-bind="text:entrega"></p></li>
-                      <li class="list-group-item">Subtotal : <p data-bind="text:getTotal()"></p></li>
-                      <li class="list-group-item">Total : <p data-bind="text:total"></p></li>
-                    </ol>
-                  </div>
+
+                    
+                    <br><hr>
+
+                    <div class="row g-12">
+
+                        <div class="col-2">
+                          <ol class="list-group list-group">
+                            <li class="list-group-item">Entrega :<p data-bind="text:entrega"></p> </li>
+                            <li class="list-group-item">Subtotal : <p data-bind="text:getTotal()"></p></li>
+                            <li class="list-group-item">Total : <p data-bind="text:total"></p></li>
+                          </ol>
+                        </div>
+
+                        <div class="col-8">
+                            <div class="row g-8">
+                              <div class="col-3"></div>
+                                <div class="col-5"><span class="badge bg-light text-dark badige">Método de pagamento : </span><br><br>
+                              <div class="form-check form-check-inline" style="padding: 5px;">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <img class="paymentImg" src="../pictures/multibanco.png">
+                              </div>
+                              <div class="form-check form-check-inline" style="padding: 5px;">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <img class="paymentImg" src="../pictures/mbway.png">
+                              </div>
+                              <div class="form-check form-check-inline" style="padding: 5px;">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                                <img class="paymentImg" src="../pictures/paypal.png">
+                              </div>
+                              <div class="form-check form-check-inline" style="padding: 5px;">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option4">
+                                <img class="paymentImg" src="../pictures/cash.png">
+                              </div>
+                            </div>
+                              
+                            </div>
+                        </div>
                     </div>
                     
                     <br><br>
@@ -109,15 +139,9 @@
                       <div class="col-1"><button type="button" class="btn btn-light" data-bind="click:PageTransition">Alterar</button></div>
                         
                     </div>
-                    <br><br><hr>
 
                     <br><br><br><hr>
-                    <div class="row-9">
-                      <div class="col-4">
-                        
-                    </div>
-
-                  </div>
+                    
 
 
           </div>
@@ -127,13 +151,77 @@
 
 
       </div>
+    </div>
+
+    <br><br><br><br><br>
+      <footer class="text-center text-white" style="background-color: #37a140;">
+        <!-- Grid container -->
+        <div class="container pt-4">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
       
-
+            <!-- Twitter -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-twitter"></i
+            ></a>
       
-
-   
-        
-
+            <!-- Google -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-google"></i
+            ></a>
+      
+            <!-- Instagram -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-instagram"></i
+            ></a>
+      
+            <!-- Linkedin -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <!-- Github -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="#!"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-github"></i
+            ></a>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          <a class="text-dark" href="../index.html">FarmLink.com</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
 
 
     <script src ="../main libs/jquery-ui-1.13.0/jquery-ui.js"></script>

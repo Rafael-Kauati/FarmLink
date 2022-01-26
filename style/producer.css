@@ -1,6 +1,7 @@
 body{
     background-color: #59fa6a;
     font-family: Arial, Helvetica, sans-seriff;
+    overflow-x: hidden;
 
 }
 
@@ -8,6 +9,11 @@ body{
 Img{
     width: 150px;
     height: 150px;
+}
+
+.paymentImg {
+    width: 120px;
+    height: 65px;
 }
 
 .jumbimg{

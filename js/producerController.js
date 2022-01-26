@@ -14,6 +14,7 @@ let ProducerVM = function(){
     self.localizacao = ko.observable('')
     self.id = ko.observable('')
     self.rating = ko.observable('')
+    self.distancia = ko.observable('')
 
     self.nome(produtorRef["nome"])
     self.imagemsrc(produtorRef["imagemsrc"])
@@ -21,6 +22,7 @@ let ProducerVM = function(){
     self.id(produtorRef["id"])
     self.rating(produtorRef["rating"])
     self.produtos(produtorRef["arrayOfertas"])
+    self.distancia(produtorRef["distancia"])
     console.log(produtorRef["arrayOfertas"])
 
     self.cabazPreenchido = ko.observable(false)
@@ -52,13 +54,31 @@ let ProducerVM = function(){
     
     
 
-    GetItensCabaz = function(){
+    self.GetItensCabaz = ko.computed(function(){
         let cabaz = JSON.parse(localStorage.getItem("cabaz"))
         
-        return cabaz
+        return cabaz;
+    });
+
+    GetItensQuantCabaz = function(){
+        let cabaz = JSON.parse(localStorage.getItem("cabaz"))
+        let total = 0
+        let len = cabaz.length
+
+        for(let index = 0; index < len; index+=1){
+                total += cabaz[index].quantidade 
+                console.log(cabaz[index].quantidade, cabaz[index].preco)
+            }
+            
+        return total
     }
 
     self.PrecoCabaz = ko.observable('')
+
+    function showCabaz(){
+        console.log("show")
+        document.getElementsByClassName("listaDoCabaz").innerHTML = `<p>feijao</p>`
+    }
 
     showItens = function(){
         let cabaz = JSON.parse(localStorage.getItem("cabaz"))
@@ -93,6 +113,34 @@ let ProducerVM = function(){
 
         localStorage.setItem("cabaz", JSON.stringify(cabaz))
         self.cabazPreenchido(true)
+
+        let htmlCode = `
+        <table class="table bg-light tabelaprodutos">
+        <thead>
+          <tr>
+            <th scope="col">Produto</th>
+            <th scope="col">Quantidade</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Tipo</th>
+          </tr>
+        </thead>
+          <tbody id="itenscabaz" data-bind="foreach:GetItensCabaz()">
+          <tr>
+            <td data-bind="text:produto"></td>
+            <td data-bind="text:quantidade"></td>
+            <td data-bind="text:preco"></td>
+            <td data-bind="text:tipo"></td>
+          </tr>
+        </tbody>
+        
+      </table>
+      
+      
+      <button type="button" class="btn btn-success " data-bind="click:pageTransition">Confirmar pedido</button>
+      <button type="button" class="btn btn-success " data-bind="click:pageTransition"
+      data-bs-toggle="modal" data-bs-target="#exampleModal">Confirmar pedido</button>
+        `
+        //document.getElementById("listaDoCabaz").innerHTML = htmlCode
         
 
     }
@@ -165,7 +213,11 @@ let ProducerVM = function(){
         window.location.href = "confirmation.html"
     }
 
+
+    
+
 }
+
 
 
 
@@ -182,6 +234,7 @@ let ProducerVM = function(){
 
 $(document).ready(function () { 
     console.log('Running...')
+    
     //console.log(produtos)
     ko.applyBindings(new ProducerVM());
 });

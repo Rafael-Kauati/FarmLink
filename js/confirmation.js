@@ -15,6 +15,8 @@ let confirmationVM = function() {
     self.id = ko.observable('')
     self.rating = ko.observable('')
     self.entrega = ko.observable('')
+    self.distancia = ko.observable('')
+
 
     self.nome(produtorRef["nome"])
     self.imagemsrc(produtorRef["imagemsrc"])
@@ -23,7 +25,9 @@ let confirmationVM = function() {
     self.rating(produtorRef["rating"])
     self.produtos(produtorRef["arrayOfertas"])
     self.entrega(produtorRef["entrega"])
+    self.distancia(produtorRef["distancia"])
 
+    
 
     self.total = ko.computed(function(){
         let cabaz = JSON.parse(localStorage.getItem("cabaz"))
@@ -35,10 +39,12 @@ let confirmationVM = function() {
             totalcabaz += parseFloat(cabaz[index].preco)
             //console.log(cabaz[index].preco, typeof(cabaz[index].preco))
         }
+        console.log(produtorRef["entrega"] + totalcabaz)
         return parseInt(produtorRef["entrega"]) + totalcabaz
     })
 
     self.Itenscabaz = ko.observableArray([])
+   
 
     PageTransition = function(){
         window.location.href = "ProducerProfile.html"
@@ -47,6 +53,12 @@ let confirmationVM = function() {
     PageCard = function(){
         window.location.href = "cabazCard.html"
     }
+
+    removeList = function(){
+        $('.tabelaprodutos').remove();
+    }
+
+    
 
     getTotal = function(){
         let cabaz = JSON.parse(localStorage.getItem("cabaz"))
@@ -77,6 +89,7 @@ let confirmationVM = function() {
 
 
 }
+
 
 
 $(document).ready(function () { 

@@ -17,7 +17,7 @@
       }
       
     </style>
-    <link rel="shortcut icon" href="../pictures/logo9.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../pictures/logo.png" type="image/x-icon">
     <title>FarmLink - Sing In</title>
 </head>
 <body>
@@ -59,8 +59,8 @@
                     <div class="col-1" ><span class="badge bg-light text-dark badige">Nome : </span></div>
                     <div class="col-3"><p class="h5" data-bind="text:nome"></p></div>
   
-                    <div class="col-1" ><span class="badge bg-light text-dark badige">Localização : </span></div>
-                    <div class="col-3"><p class="h5" data-bind="text:localizacao"></p></div>
+                    <div class="col-1" ><span class="badge bg-light text-dark badige">Localização :   </span></div>
+                    <div class="col-3"><p class="h5" data-bind="text:localizacao"></p><p data-bind="text:distancia"></p></div>
   
                     <div class="col-1" ><span class="badge bg-light text-dark badige">Rating : </span></div>
                     <div class="col-3"><p class="h5" data-bind="text:rating"></p></div>
@@ -100,25 +100,17 @@
                                     <p class="col-3 card-text" data-bind="text:preco"></p>
                                     <p class="col-3">€$</p>
                                   </div>
-                                  <button data-bind="click:AddItem" ><i class="far fa-plus-square"></i></button>
-                                  <button data-bind="click:RemoveItem"><i class="fas fa-minus"></i></button>
+                                  <button id="AddItem" data-bind="click:AddItem"><i class="far fa-plus-square"></i></button>
+                                  <button id="RemoveItem" data-bind="click:RemoveItem"><i class="fas fa-minus"></i></button>
+
                                 </div>
                               </div>
 
                       </div>
 
-                    
                   </div>
 
-
-
               </div>
-
-
-
-              
-
-                  
               
               <div class="col-4" data-bind="if:cabazPreenchido" >
                 <table class="table bg-light tabelaprodutos">
@@ -130,7 +122,7 @@
                       <th scope="col">Tipo</th>
                     </tr>
                   </thead>
-                    <tbody data-bind="foreach:GetItensCabaz()">
+                    <tbody id="itenscabaz" data-bind="foreach:GetItensCabaz">
                     <tr>
                       <td data-bind="text:produto"></td>
                       <td data-bind="text:quantidade"></td>
@@ -140,26 +132,84 @@
                   </tbody>
                   
                 </table>
-
-                <button type="button" class="btn btn-success" data-bind="click:pageTransition">Confirmar pedido</button>
+                
+                
+                <button type="button" class="btn btn-success " data-bind="click:pageTransition">Confirmar pedido</button>
                
               </div>
 
-
-
-
           </div>
 
-
-
-        
-
     </div>
-          
-        
-
-        
-
+    <br><br><br><br><br>
+    <footer class="text-center text-white" style="background-color: #37a140;">
+      <!-- Grid container -->
+      <div class="container pt-4">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          <!-- Facebook -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+    
+          <!-- Twitter -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-twitter"></i
+          ></a>
+    
+          <!-- Google -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-google"></i
+          ></a>
+    
+          <!-- Instagram -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-instagram"></i
+          ></a>
+    
+          <!-- Linkedin -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <!-- Github -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="#!"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-github"></i
+          ></a>
+        </section>
+        <!-- Section: Social media -->
+      </div>
+      <!-- Grid container -->
+    
+      <!-- Copyright -->
+      <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        <a class="text-dark" href="../index.html">FarmLink.com</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
 
 
     <script src ="../main libs/jquery-ui-1.13.0/jquery-ui.js"></script>
